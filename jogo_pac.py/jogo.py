@@ -32,16 +32,18 @@ while continua:
                 continua = False
             if event.key == pygame.K_DOWN:
                 vx = 0
-                vy = 0.005
+                vy = 0.05
             if event.key == pygame.K_UP:
                 vx = 0
-                vy = 0.005
+                vy = -0.05
             if event.key == pygame.K_LEFT:
-                vx = -0.005
+                vx = -0.05
                 vy = 0
             if event.key == pygame.K_RIGHT:
-                vx = 0.005
+                vx = 0.05
                 vy = 0
+                
+    v = pygame.Vector2(vx, vy)
     pos = pos + v
 
     # Para que serve os vetores?
