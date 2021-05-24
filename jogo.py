@@ -18,9 +18,16 @@ black = (0, 0, 0)
 
 window = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Exemplo 3')
+assets = {}
+
 
 player = pygame.image.load('sprites/PacMan.png').convert()
 player = pygame.transform.scale(player, (40, 40))
+
+assets['player'] = player
+assets['parede'] = pygame.image.load('').convert()
+
+
 
 centro = pygame.Vector2(largura / 2, altura / 2)
 vx = 0
