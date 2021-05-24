@@ -13,6 +13,9 @@ black = (0, 0, 0)
 window = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Exemplo 3')
 
+player = pygame.image.load('jogo_pac.py/sprites/PacMan.png').convert()
+player = pygame.transform.scale(player, (40, 40))
+
 centro = pygame.Vector2(largura / 2, altura / 2)
 vx = 0
 vy = 0
@@ -50,7 +53,7 @@ while continua:
     window.fill((0, 0, 0))
     
     
-    pygame.draw.circle(window, white, pos, diametro)
+    window.blit(player, (pos))
     pygame.display.update()
 
 pygame.quit()
