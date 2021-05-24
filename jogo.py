@@ -1,7 +1,13 @@
 import pygame
 from pygame.constants import VIDEOEXPOSE
+from classe import *
 
 pygame.init()
+
+all_sprites = pygame.sprite.Group()
+all_paredes = pygame.sprite.Group()
+
+
 
 largura = 500
 altura = 400
@@ -13,7 +19,7 @@ black = (0, 0, 0)
 window = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Exemplo 3')
 
-player = pygame.image.load('jogo_pac.py/sprites/PacMan.png').convert()
+player = pygame.image.load('sprites/PacMan.png').convert()
 player = pygame.transform.scale(player, (40, 40))
 
 centro = pygame.Vector2(largura / 2, altura / 2)
@@ -21,9 +27,25 @@ vx = 0
 vy = 0
 v = pygame.Vector2(vx, vy)
 
+matriz_paredes = [
+    [1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,1,1,1,1,1,0,1],
 
+]
+
+i = 0 
+while i < len(matriz_paredes):
+    j=0
+    while j < len(matriz_paredes[i]):
+        if matriz_paredes[i][j] == 1:
+            p = Parede(i, j, assets)
+            all_paredes.add(p)
+            all_sprites.add(p)
 
 pos = centro  
+
+
 
 continua = True
 while continua:
@@ -45,7 +67,7 @@ while continua:
             if event.key == pygame.K_RIGHT:
                 vx = 0.05
                 vy = 0
-                
+
     v = pygame.Vector2(vx, vy)
     pos = pos + v
 
@@ -54,6 +76,8 @@ while continua:
     
     
     window.blit(player, (pos))
+    all_sprites.update()
+
     pygame.display.update()
 
 pygame.quit()
