@@ -17,12 +17,12 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 
 window = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Pac Man')
+pygame.display.set_caption('Pac Menzinho')
 assets = {}
 
 
 player = pygame.image.load('sprites/PacMan.png').convert()
-player = pygame.transform.scale(player, (30, 30))
+player = pygame.transform.scale(player, (29, 29))
 
 assets['player'] = player
 assets['parede'] = pygame.image.load('sprites/Parede.png').convert()
@@ -95,15 +95,18 @@ while continua:
                 vy = 0
 
     v = pygame.Vector2(vx, vy)
-    pos = pos + v
-
+    all_sprites.update()
     
+    pos = pos + v
+    
+    colisao = pygame.sprite.spritecollide(player,all_paredes,True)
+    if len(colisao) > 0:
+        
 
     window.fill((0, 0, 0))
     
     
     window.blit(player, (pos))
-    all_sprites.update()
     all_sprites.draw(window)
 
     pygame.display.update()
