@@ -21,7 +21,7 @@ pygame.display.set_caption('Pac Menzinho')
 assets = {}
 
 
-player = pygame.image.load('sprites/PacMan.png').convert()
+player = pygame.image.load('sprites/pp.png').convert()
 player = pygame.transform.scale(player, (29, 29))
 
 assets['player'] = player
@@ -99,9 +99,9 @@ while continua:
     
     pos = pos + v
     
-    colisao = pygame.sprite.spritecollide(player,all_paredes,True)
-    if len(colisao) > 0:
-        v = 0
+    #colisao = pygame.sprite.spritecollide(player,all_paredes,True)
+    #if len(colisao) > 0:
+        #v = 0
 
     window.fill((0, 0, 0))
     window.blit(player, (pos))
