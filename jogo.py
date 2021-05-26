@@ -97,7 +97,8 @@ while continua:
     v = pygame.Vector2(vx, vy)
     pos = pos + v
 
-    # Para que serve os vetores?
+    
+
     window.fill((0, 0, 0))
     
     
