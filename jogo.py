@@ -10,7 +10,7 @@ all_paredes = pygame.sprite.Group()
 
 
 largura = 560
-altura = 600
+altura = 590
 diametro = 5
 
 white = (255, 255, 255)
