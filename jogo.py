@@ -101,11 +101,9 @@ while continua:
     
     colisao = pygame.sprite.spritecollide(player,all_paredes,True)
     if len(colisao) > 0:
-        
+        v = 0
 
     window.fill((0, 0, 0))
-    
-    
     window.blit(player, (pos))
     all_sprites.draw(window)
 
