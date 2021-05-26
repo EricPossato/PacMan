@@ -25,7 +25,7 @@ player = pygame.image.load('sprites/PacMan.png').convert()
 player = pygame.transform.scale(player, (40, 40))
 
 assets['player'] = player
-assets['parede'] = pygame.image.load('').convert()
+assets['parede'] = pygame.image.load('s').convert()
 
 
 
