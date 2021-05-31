@@ -83,10 +83,10 @@ while continua:
                 continua = False
             if event.key == pygame.K_DOWN:
                 player.speedx = 0
-                player.speedy = 0.05
+                player.speedy =+ 0.05
             if event.key == pygame.K_UP:
                 player.speedx = 0
-                player.speedy = -0.05
+                player.speedy += -0.05
             if event.key == pygame.K_LEFT:
                 player.speedx = -0.05
                 player.speedy = 0
@@ -96,9 +96,10 @@ while continua:
 
     all_sprites.update()
     
-    #colisao = pygame.sprite.spritecollide(player,all_paredes,True)
-    #if len(colisao) > 0:
-        #v = 0
+    colisao = pygame.sprite.spritecollide(player,all_paredes,True)
+    if len(colisao) > 0:
+        player.speedx = 0
+        player.speedy = 0
 
     window.fill((0, 0, 0))
     all_sprites.draw(window)
