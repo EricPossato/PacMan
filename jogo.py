@@ -7,7 +7,8 @@ pygame.init()
 all_sprites = pygame.sprite.Group()
 all_paredes = pygame.sprite.Group()
 
-
+clock = pygame.time.Clock()
+FPS = 30
 
 largura = 560
 altura = 590
@@ -75,6 +76,7 @@ pos = centro
 
 continua = True
 while continua:
+    clock.tick(FPS)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             continua = False
@@ -83,15 +85,15 @@ while continua:
                 continua = False
             if event.key == pygame.K_DOWN:
                 player.speedx = 0
-                player.speedy = 0.05
+                player.speedy = 1
             if event.key == pygame.K_UP:
                 player.speedx = 0
-                player.speedy = -0.05
+                player.speedy = -1
             if event.key == pygame.K_LEFT:
-                player.speedx = -0.05
+                player.speedx = -1
                 player.speedy = 0
             if event.key == pygame.K_RIGHT:
-                player.speedx = 0.05
+                player.speedx = 1
                 player.speedy = 0
 
     all_sprites.update()
@@ -100,6 +102,7 @@ while continua:
     if len(colisao) > 0:
         player.speedx = 0
         player.speedy = 0
+        print('COLIDIU')
 
     window.fill((0, 0, 0))
     all_sprites.draw(window)
