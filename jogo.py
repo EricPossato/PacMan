@@ -10,8 +10,8 @@ all_paredes = pygame.sprite.Group()
 clock = pygame.time.Clock()
 FPS = 30
 
-largura = 560
-altura = 590
+largura = 570
+altura = 600
 diametro = 5
 
 white = (255, 255, 255)
@@ -25,10 +25,18 @@ assets = {}
 assets['player_img'] = pygame.image.load('sprites/pp.png').convert_alpha()
 assets['player_img'] = pygame.transform.scale(assets['player_img'], (20, 20))
 
-player = Player(assets['player_img'])
-assets['parede'] = pygame.image.load('sprites/Parede.png').convert()
-all_sprites.add(player)
+andando = []
+for i in range(1,7):
+    filename = 'sprites/personagem/walk{}.png'.format(i)
+    img = pygame.image.load(filename).convert_alpha()
+    img = pygame.transform.scale(img, (20, 20))
+    andando.append(img)
+assets["player_img"] = andando
 
+player = Player(assets['player_img'])
+all_sprites.add(player)
+assets['parede'] = pygame.image.load('sprites/Parede.png').convert_alpha()
+assets['parede'] = pygame.transform.scale(assets['parede'], (29, 29))
 
 centro = pygame.Vector2(largura / 2, altura / 2)
 vx = 0
@@ -85,15 +93,15 @@ while continua:
                 continua = False
             if event.key == pygame.K_DOWN:
                 player.speedx = 0
-                player.speedy = 1
+                player.speedy = 2
             if event.key == pygame.K_UP:
                 player.speedx = 0
-                player.speedy = -1
+                player.speedy = -2
             if event.key == pygame.K_LEFT:
-                player.speedx = -1
+                player.speedx = -2
                 player.speedy = 0
             if event.key == pygame.K_RIGHT:
-                player.speedx = 1
+                player.speedx = 2
                 player.speedy = 0
 
     all_sprites.update()
