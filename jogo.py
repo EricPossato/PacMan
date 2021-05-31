@@ -82,17 +82,17 @@ while continua:
             if event.key == pygame.K_ESCAPE:
                 continua = False
             if event.key == pygame.K_DOWN:
-                Player.speedx = 0
-                Player.speedy = 0.05
+                player.speedx = 0
+                player.speedy = 0.05
             if event.key == pygame.K_UP:
-                Player.speedx = 0
-                Player.speedy = -0.05
+                player.speedx = 0
+                player.speedy = -0.05
             if event.key == pygame.K_LEFT:
-                Player.speedx = -0.05
-                Player.speedy = 0
+                player.speedx = -0.05
+                player.speedy = 0
             if event.key == pygame.K_RIGHT:
-                Player.speedx = 0.05
-                Player.speedy = 0
+                player.speedx = 0.05
+                player.speedy = 0
 
     all_sprites.update()
     
