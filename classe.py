@@ -1,10 +1,13 @@
 import pygame
-
+largura = 560
+altura = 590
 class Player(pygame.sprite.Sprite):
-    def __init__(self, assets):
+    def __init__(self, img):
         super().__init__()
-        self.image = assets['player']
+        self.image = img
         self.rect = self.image.get_rect()
+        self.rect.centerx = largura / 2
+        self.rect.bottom = altura / 2
         self.speedx = 0
         self.speedy = 0
     def update (self):

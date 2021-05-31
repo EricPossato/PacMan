@@ -21,12 +21,12 @@ pygame.display.set_caption('Pac Menzinho')
 assets = {}
 
 
-player = pygame.image.load('sprites/pp.png').convert()
-player = pygame.transform.scale(player, (29, 29))
+assets['player_img'] = pygame.image.load('sprites/pp.png').convert_alpha()
+assets['player_img'] = pygame.transform.scale(assets['player_img'], (29, 29))
 
-assets['player'] = player
+player = Player(assets['player_img'])
 assets['parede'] = pygame.image.load('sprites/Parede.png').convert()
-
+all_sprites.add(player)
 
 
 centro = pygame.Vector2(largura / 2, altura / 2)
@@ -82,29 +82,25 @@ while continua:
             if event.key == pygame.K_ESCAPE:
                 continua = False
             if event.key == pygame.K_DOWN:
-                vx = 0
-                vy = 0.05
+                Player.speedx = 0
+                Player.speedy = 0.05
             if event.key == pygame.K_UP:
-                vx = 0
-                vy = -0.05
+                Player.speedx = 0
+                Player.speedy = -0.05
             if event.key == pygame.K_LEFT:
-                vx = -0.05
-                vy = 0
+                Player.speedx = -0.05
+                Player.speedy = 0
             if event.key == pygame.K_RIGHT:
-                vx = 0.05
-                vy = 0
+                Player.speedx = 0.05
+                Player.speedy = 0
 
-    v = pygame.Vector2(vx, vy)
     all_sprites.update()
-    
-    pos = pos + v
     
     #colisao = pygame.sprite.spritecollide(player,all_paredes,True)
     #if len(colisao) > 0:
         #v = 0
 
     window.fill((0, 0, 0))
-    window.blit(player, (pos))
     all_sprites.draw(window)
 
     pygame.display.update()
