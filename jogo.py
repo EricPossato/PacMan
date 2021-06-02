@@ -82,7 +82,7 @@ while i < len(matriz_paredes):
 while len(all_pontos) < 3:
     pontox = random.randint(0,18)
     pontoy = random.randint(0,19)
-    if matriz_paredes[pontoy][pontox]:
+    if matriz_paredes[pontoy][pontox] == 1:
         ponto = Pontos(pontoy,pontox, assets)
         all_pontos.add(ponto)
         all_sprites.add(ponto)
