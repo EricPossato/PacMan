@@ -119,6 +119,7 @@ while continua:
         pontoy = random.randint(0,19)
         if matriz_paredes[pontoy][pontox] == 1:
             ponto = Pontos(pontoy,pontox, assets)
+            pygame.sprite.spritecollide(ponto,all_pontos,True)
             all_pontos.add(ponto)
             all_sprites.add(ponto)
 

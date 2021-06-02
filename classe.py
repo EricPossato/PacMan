@@ -7,6 +7,8 @@ class Player(pygame.sprite.Sprite):
         self.andando = img
         self.frame = 0  # Armazena o índice atual na animação
         self.image = self.andando[self.frame]
+        self.image_d = self.image
+        self.image_e = pygame.transform.flip(self.image, True, False)
         self.rect = self.image.get_rect()
         self.last_update = pygame.time.get_ticks()
         self.frame_ticks = 120
@@ -39,7 +41,10 @@ class Player(pygame.sprite.Sprite):
                 self.rect.x = x
                 self.rect.y = y
 
-
+        if self.speedx < 0:
+            self.image = self.image_e
+        if self.speedx > 0:
+            self.image = self.image_d
         self.rect.x += self.speedx
         self.rect.y += self.speedy
 
@@ -56,5 +61,5 @@ class Pontos(pygame.sprite.Sprite):
         super().__init__()
         self.image = assets['ponto']
         self.rect = self.image.get_rect()
-        self.rect.x = x *20
-        self.rect.y = y* 20
+        self.rect.x = x *30
+        self.rect.y = y* 30
