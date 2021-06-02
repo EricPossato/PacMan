@@ -40,7 +40,7 @@ assets['parede'] = pygame.image.load('sprites/Parede.png').convert_alpha()
 assets['parede'] = pygame.transform.scale(assets['parede'], (29, 29))
 
 assets['ponto'] = pygame.image.load('sprites/juul.png').convert_alpha()
-assets['ponto'] = pygame.transform.scale(assets['ponto'], (27, 27))
+assets['ponto'] = pygame.transform.scale(assets['ponto'], (30, 30))
 
 
 centro = pygame.Vector2(largura / 2, altura / 2)
