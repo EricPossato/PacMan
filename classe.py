@@ -51,3 +51,10 @@ class Parede(pygame.sprite.Sprite):
         self.rect.x = x*30
         self.rect.y = y*30
 
+class Pontos(pygame.sprite.Sprite):
+    def __init__(self, x, y, assets):
+        super().__init__()
+        self.image = assets['juul']
+        self.rect = self.image.get_rect()
+        self.rect.x = x *20
+        self.rect.y = y* 20

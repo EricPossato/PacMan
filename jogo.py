@@ -1,6 +1,7 @@
 import pygame
 from pygame.constants import VIDEOEXPOSE
 from classe import *
+import random
 
 pygame.init()
 
