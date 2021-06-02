@@ -7,7 +7,7 @@ pygame.init()
 
 all_sprites = pygame.sprite.Group()
 all_paredes = pygame.sprite.Group()
-
+all_pontos = pygame.sprite.Group()
 clock = pygame.time.Clock()
 FPS = 30
 
@@ -79,8 +79,14 @@ while i < len(matriz_paredes):
         j+=1
     i+=1
 
+while len(all_pontos) < 3:
+    pontox = random.randint(0,18)
+    pontoy = random.randint(0,19)
+    if matriz_paredes[pontoy][pontox]:
+        ponto = Pontos(pontoy,pontox, assets)
+        all_pontos.add(ponto)
+        all_sprites.add(ponto)
 pos = centro  
-
 
 
 continua = True
