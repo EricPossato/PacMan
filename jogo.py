@@ -39,6 +39,10 @@ all_sprites.add(player)
 assets['parede'] = pygame.image.load('sprites/Parede.png').convert_alpha()
 assets['parede'] = pygame.transform.scale(assets['parede'], (29, 29))
 
+assets['ponto'] = pygame.image.load('sprites/juul.png').convert_alpha()
+assets['ponto'] = pygame.transform.scale(assets['ponto'], (27, 27))
+
+
 centro = pygame.Vector2(largura / 2, altura / 2)
 vx = 0
 vy = 0
@@ -86,8 +90,7 @@ while len(all_pontos) < 3:
         ponto = Pontos(pontoy,pontox, assets)
         all_pontos.add(ponto)
         all_sprites.add(ponto)
-pos = centro  
-
+  
 
 continua = True
 while continua:
@@ -111,6 +114,14 @@ while continua:
                 player.speedx = 2
                 player.speedy = 0
 
+    while len(all_pontos) < 3:
+        pontox = random.randint(0,18)
+        pontoy = random.randint(0,19)
+        if matriz_paredes[pontoy][pontox] == 1:
+            ponto = Pontos(pontoy,pontox, assets)
+            all_pontos.add(ponto)
+            all_sprites.add(ponto)
+
     all_sprites.update()
     
     colisao = pygame.sprite.spritecollide(player,all_paredes,False)
@@ -118,6 +129,8 @@ while continua:
         player.speedx = 0
         player.speedy = 0
         print('COLIDIU')
+
+    coletar = pygame.sprite.spritecollide(player,all_pontos,True)
 
     window.fill((0, 0, 0))
     all_sprites.draw(window)
