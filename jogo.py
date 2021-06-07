@@ -138,9 +138,11 @@ while continua:
 
 
     coletar = pygame.sprite.spritecollide(player,all_pontos,True)
+    
 
-    window.fill((0, 0, 0))
+    window.fill((0, 0, 0))   
     all_sprites.draw(window)
+    barra_vida = pygame.draw.rect(window, (255,0,0), (30,540,vida*2,30))
 
     pygame.display.update()
 
