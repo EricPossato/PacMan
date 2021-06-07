@@ -5,6 +5,8 @@ import random
 
 pygame.init()
 
+
+
 all_sprites = pygame.sprite.Group()
 all_paredes = pygame.sprite.Group()
 all_pontos = pygame.sprite.Group()
@@ -25,6 +27,8 @@ assets = {}
 
 assets['player_img'] = pygame.image.load('sprites/pp.png').convert_alpha()
 assets['player_img'] = pygame.transform.scale(assets['player_img'], (20, 20))
+
+assets["score_font"] = pygame.font.Font('upheavtt.ttf', 28)
 
 andando = []
 for i in range(1,7):
@@ -138,11 +142,17 @@ while continua:
 
 
     coletar = pygame.sprite.spritecollide(player,all_pontos,True)
-    
+    if coletar :
+        score = score + 100
 
     window.fill((0, 0, 0))   
     all_sprites.draw(window)
-    barra_vida = pygame.draw.rect(window, (255,0,0), (30,540,vida*2,30))
+    text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
+    text_rect = text_surface.get_rect()
+    text_rect.topleft = (340 ,  540)
+    window.blit(text_surface, text_rect)
+
+    barra_vida = pygame.draw.rect(window, (255,0,0), (60,540,vida*2,30))
 
     pygame.display.update()
 
