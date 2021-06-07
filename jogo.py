@@ -71,6 +71,7 @@ matriz_paredes =[
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
+score = 0
 
 i = 0 
 while i < len(matriz_paredes):
@@ -90,7 +91,8 @@ while len(all_pontos) < 3:
         ponto = Pontos(pontoy,pontox, assets)
         all_pontos.add(ponto)
         all_sprites.add(ponto)
-  
+
+vida = 100
 
 continua = True
 while continua:
@@ -130,6 +132,10 @@ while continua:
         player.speedx = 0
         player.speedy = 0
         print('COLIDIU')
+        vida = vida - 1
+    if vida == 0:
+        continua = False
+
 
     coletar = pygame.sprite.spritecollide(player,all_pontos,True)
 
