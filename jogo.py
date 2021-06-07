@@ -15,18 +15,14 @@ FPS = 30
 
 largura = 570
 altura = 600
-diametro = 5
 
 white = (255, 255, 255)
 black = (0, 0, 0)
+red = (255,0,0)
 
 window = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Pac Menzinho')
 assets = {}
-
-
-assets['player_img'] = pygame.image.load('sprites/pp.png').convert_alpha()
-assets['player_img'] = pygame.transform.scale(assets['player_img'], (20, 20))
 
 assets["score_font"] = pygame.font.Font('upheavtt.ttf', 28)
 
@@ -147,17 +143,17 @@ while continua:
 
     window.fill((0, 0, 0))   
     all_sprites.draw(window)
-    text_surface = assets['score_font'].render("vida:", True, (255, 255, 255))
+    text_surface = assets['score_font'].render("vida:", True, (white))
     text_rect = text_surface.get_rect()
     text_rect.topleft = (5 ,  540)
     window.blit(text_surface, text_rect)
 
-    text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
+    text_surface = assets['score_font'].render("{:08d}".format(score), True, (white))
     text_rect = text_surface.get_rect()
     text_rect.topleft = (340 ,  540)
     window.blit(text_surface, text_rect)
 
-    barra_vida = pygame.draw.rect(window, (255,0,0), (80,540,vida*2,30))
+    barra_vida = pygame.draw.rect(window, (red), (80,540,vida*2,30))
 
     pygame.display.update()
 
