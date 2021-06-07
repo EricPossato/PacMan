@@ -147,12 +147,17 @@ while continua:
 
     window.fill((0, 0, 0))   
     all_sprites.draw(window)
+    text_surface = assets['score_font'].render("vida:", True, (255, 255, 255))
+    text_rect = text_surface.get_rect()
+    text_rect.topleft = (5 ,  540)
+    window.blit(text_surface, text_rect)
+
     text_surface = assets['score_font'].render("{:08d}".format(score), True, (255, 255, 255))
     text_rect = text_surface.get_rect()
     text_rect.topleft = (340 ,  540)
     window.blit(text_surface, text_rect)
 
-    barra_vida = pygame.draw.rect(window, (255,0,0), (60,540,vida*2,30))
+    barra_vida = pygame.draw.rect(window, (255,0,0), (80,540,vida*2,30))
 
     pygame.display.update()
 
