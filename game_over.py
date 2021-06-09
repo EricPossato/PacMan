@@ -1,6 +1,6 @@
 import pygame
 
-def start_screen(window):
+def game_over(window):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
     largura = 570
@@ -8,7 +8,7 @@ def start_screen(window):
     window = pygame.display.set_mode((largura, altura))
     pygame.display.set_caption('Speed Menzinho')  
     # Carrega o fundo da tela inicial
-    background = pygame.image.load('sprites/TELAS/tela inicial.png').convert()
+    background = pygame.image.load('sprites/TELAS/tela final.png').convert()
     background_rect = background.get_rect()
 
     running = True

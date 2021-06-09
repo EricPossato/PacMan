@@ -98,16 +98,16 @@ def game_screen(window):
     vida = 100
     speed = 2
 
-    continua = True
+    state = 2
     pygame.mixer.music.play(loops=-1)
-    while continua:
+    while state == 2:
         clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                continua = False
+                state = 0
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    continua = False
+                    state = 0
                 if event.key == pygame.K_DOWN:
                     player.speedx = 0
                     player.speedy = speed
@@ -143,7 +143,7 @@ def game_screen(window):
             assets['hit_sound'].stop()
             assets['morte_sound'].play()
             time.sleep(1)
-            continua = False
+            state = 3
 
 
         coletar = pygame.sprite.spritecollide(player,all_pontos,True)
@@ -168,3 +168,4 @@ def game_screen(window):
         barra_vida = pygame.draw.rect(window, (red), (80,540,vida*2,30))
 
         pygame.display.update()
+    return state
