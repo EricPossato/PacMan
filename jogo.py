@@ -21,7 +21,7 @@ black = (0, 0, 0)
 red = (255,0,0)
 
 window = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Pac Menzinho')
+pygame.display.set_caption('Speed Menzinho')
 assets = {}
 
 assets["score_font"] = pygame.font.Font('upheavtt.ttf', 28)
