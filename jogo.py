@@ -102,6 +102,7 @@ while len(all_pontos) < 3:
         all_sprites.add(ponto)
 
 vida = 100
+speed = 2
 
 continua = True
 pygame.mixer.music.play(loops=-1)
@@ -115,15 +116,15 @@ while continua:
                 continua = False
             if event.key == pygame.K_DOWN:
                 player.speedx = 0
-                player.speedy = 2
+                player.speedy = speed
             if event.key == pygame.K_UP:
                 player.speedx = 0
-                player.speedy = -2
+                player.speedy = -speed
             if event.key == pygame.K_LEFT:
-                player.speedx = -2
+                player.speedx = -speed
                 player.speedy = 0
             if event.key == pygame.K_RIGHT:
-                player.speedx = 2
+                player.speedx = speed
                 player.speedy = 0
 
     while len(all_pontos) < 3:
@@ -154,6 +155,8 @@ while continua:
     coletar = pygame.sprite.spritecollide(player,all_pontos,True)
     if coletar :
         score = score + 100
+        if score % 1000 == 0:
+            speed += 1
 
     window.fill((0, 0, 0))   
     all_sprites.draw(window)
