@@ -2,6 +2,7 @@ import pygame
 from pygame.constants import VIDEOEXPOSE
 from classe import *
 import random
+import time
 
 pygame.init()
 
@@ -41,6 +42,14 @@ assets['parede'] = pygame.transform.scale(assets['parede'], (29, 29))
 
 assets['ponto'] = pygame.image.load('sprites/juul.png').convert_alpha()
 assets['ponto'] = pygame.transform.scale(assets['ponto'], (30, 30))
+
+pygame.mixer.music.load('sprites/sons/HOTfundo.mp3')
+pygame.mixer.music.set_volume(0.1)
+
+assets['hit_sound'] = pygame.mixer.Sound('sprites/sons/hit.mp3')
+assets['hit_sound'].set_volume(0.2)
+assets['morte_sound'] = pygame.mixer.Sound('sprites/sons/BRUH.mp3')
+assets['start_sound'] = pygame.mixer.Sound('sprites/sons/LETS GO.mp3')
 
 
 centro = pygame.Vector2(largura / 2, altura / 2)
@@ -95,6 +104,7 @@ while len(all_pontos) < 3:
 vida = 100
 
 continua = True
+pygame.mixer.music.play(loops=-1)
 while continua:
     clock.tick(FPS)
     for event in pygame.event.get():
@@ -129,11 +139,15 @@ while continua:
     
     colisao = pygame.sprite.spritecollide(player,all_paredes,False)
     if len(colisao) > 0:
+        assets['hit_sound'].play()
         player.speedx = 0
         player.speedy = 0
-        print('COLIDIU')
         vida = vida - 1
     if vida == 0:
+        pygame.mixer.music.stop()
+        assets['hit_sound'].stop()
+        assets['morte_sound'].play()
+        time.sleep(1)
         continua = False
 
 
@@ -156,5 +170,3 @@ while continua:
     barra_vida = pygame.draw.rect(window, (red), (80,540,vida*2,30))
 
     pygame.display.update()
-
-pygame.quit()
