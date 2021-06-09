@@ -10,8 +10,9 @@ Integrantes do grupo: Rodrigo Gomes, Gabriel Nichols, Eric Possato
 -Descrição:
 O nosso jogo consiste em um speedrun, em que o objetivo é pegar o máximo de juuls (moedas do jogo) possíveis sem encostar nas paredes, pois ao encostar o jogador perde vida, e se sua vida esgotar ele perde o jogo. Caso o jogador consiga coletar mais de 10 juuls a sua velocidade ficara mais rapida, e consequentemente deixando o jogo mais difícil.
 
- 
- 
+-Gameplay:
+    https://youtu.be/FNIMtEP4GkI
+
 -Para jogar:
 Istale Python 3X (versão miníma para funcionamento)
 Faca download da biblioteca pygame
