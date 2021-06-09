@@ -1,4 +1,5 @@
 import pygame
+import time
 
 def start_screen(window):
     # Variável para o ajuste de velocidade
@@ -10,8 +11,12 @@ def start_screen(window):
     # Carrega o fundo da tela inicial
     background = pygame.image.load('sprites/TELAS/tela inicial.png').convert()
     background_rect = background.get_rect()
+    lets_go= pygame.mixer.Sound('sprites/sons/LETS GO.mp3')
+    pygame.mixer.music.load('sprites/sons/INICIAL.mp3')
+    pygame.mixer.music.set_volume(0.1)
 
     running = True
+    pygame.mixer.music.play(loops=-1)
     while running:
 
         # Ajusta a velocidade do jogo.
@@ -28,6 +33,11 @@ def start_screen(window):
                 if event.key == pygame.K_RETURN:
                     state = 2
                     running = False
+                    pygame.mixer.music.stop()
+                    lets_go.play()
+                    time.sleep(3.4)
+
+
 
         # A cada loop, redesenha o fundo e os sprites
         window.blit(background, background_rect)

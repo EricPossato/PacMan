@@ -10,7 +10,10 @@ def game_over(window):
     # Carrega o fundo da tela inicial
     background = pygame.image.load('sprites/TELAS/tela final.png').convert()
     background_rect = background.get_rect()
+    pygame.mixer.music.load('sprites/sons/FINAL.mp3')
+    pygame.mixer.music.set_volume(0.1)
 
+    pygame.mixer.music.play(loops=-1)
     running = True
     while running:
 
@@ -28,6 +31,7 @@ def game_over(window):
                 if event.key == pygame.K_RETURN:
                     state = 2
                     running = False
+                    pygame.mixer.music.stop()
 
         # A cada loop, redesenha o fundo e os sprites
         window.blit(background, background_rect)

@@ -43,7 +43,6 @@ def game_screen(window):
     assets['hit_sound'] = pygame.mixer.Sound('sprites/sons/hit.mp3')
     assets['hit_sound'].set_volume(0.2)
     assets['morte_sound'] = pygame.mixer.Sound('sprites/sons/BRUH.mp3')
-    assets['start_sound'] = pygame.mixer.Sound('sprites/sons/LETS GO.mp3')
     assets['puxada_sound'] = pygame.mixer.Sound('sprites/sons/fumasa.mp3')
 
     centro = pygame.Vector2(largura / 2, altura / 2)

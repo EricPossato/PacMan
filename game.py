@@ -1,7 +1,5 @@
 import pygame
 from classe import *
-import random
-import time
 from game_screen import game_screen
 from start_screen import start_screen
 from game_over import game_over
